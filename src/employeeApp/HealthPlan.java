@@ -6,7 +6,7 @@ public class HealthPlan {
   private int id;
   private String name;
 
-  public HealthPlan(int id, String name) {
+  public HealthPlan(String name) {
     maxId++;
     id = maxId;
     this.name = name;
