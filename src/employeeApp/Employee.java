@@ -3,8 +3,8 @@ package employeeApp;
 public class Employee {
 
   private static int maxId = 0; // static is shared across objects, single memory location across all objects
-  
-  // fields 
+
+  // fields
   private int id;
   private String fname;
   private String lname;
@@ -12,8 +12,8 @@ public class Employee {
   private boolean has401k;
   private int companyId;
   private int healthPlanId;
-  
-  //method
+
+  // method
   public Employee(String fname, String lname, double salary, boolean has401k, int companyId, int healthPlanId) {
 
     maxId++;
@@ -78,6 +78,11 @@ public class Employee {
 
   public void setHealthPlanId(int healthPlanId) {
     this.healthPlanId = healthPlanId;
+  }
+
+  // Other Methods
+  public String getName() {
+    return fname + " " + lname;
   }
 }
 
