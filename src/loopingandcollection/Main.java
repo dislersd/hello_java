@@ -95,10 +95,35 @@ public class Main {
                             // something gets deleted
 
     System.out.println("\n *** Sort ArrayList - By weight largest to smalles");
-    dogArrayList.sort(Comparator.comparing(o -> o.getAvgWeight(), Comparator.reverseOrder()));
+    dogArrayList.sort(Comparator.comparing(o -> o.getAvgWeight(), Comparator.reverseOrder())); // Comparator to sort
+                                                                                               // array list
 
     for (Dog d : dogArrayList) {
       System.out.print(d);
     }
+
+    System.out.println("\n\n *** HashMaps");
+    // Object -> collections -> map -> hashmap
+    // Map<key, value>
+    Map<Integer, Dog> dogsHashMap = new HashMap<>();
+    int hashcount = 0;
+    for (Dog d : dogArrayList) {
+      dogsHashMap.put(hashcount, d);
+      hashcount++;
+    }
+
+    System.out.println("Key of 3 " + dogsHashMap.get(3));
+    System.out.println("Size " + dogsHashMap.size());
+    dogsHashMap.remove(3);
+    System.out.println("Key of 3 removed " + dogsHashMap.get(3));
+
+    // print hashmap
+    System.out.println("\nPrinting hashmap");
+    for (HashMap.Entry mapElem : dogsHashMap.entrySet()) {
+      System.out.print("Key is " + mapElem.getKey());
+      System.out.println(" Value is " + mapElem.getValue());
+    }
+    // sort hashmap
+    // hashmao string
   }
 }
