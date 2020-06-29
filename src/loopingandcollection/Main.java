@@ -46,10 +46,10 @@ public class Main {
     }
 
     System.out.println();
-    for (Dog d: dogArrayList) {
+    for (Dog d : dogArrayList) {
       System.out.print(d.getBreed() + " are ");
 
-      switch(d.getAvgWeight()) {
+      switch (d.getAvgWeight()) {
         case 5:
           System.out.print(d.getAvgWeight() + " very small ");
           break;
@@ -69,6 +69,36 @@ public class Main {
           System.out.print(d.getAvgWeight() + " unknown ");
       }
       System.out.println(" dogs");
+    }
+
+    System.out.println();
+    if (dogArrayList.get(2).getBreed().equals("Turtle")) {
+      System.out.println("Match!");
+    } else {
+      System.out.println("No Match!");
+    }
+    System.out.println();
+    dogArrayList.add(2, new Dog("Lab", 75, false)); // add to add element to list
+    for (Dog d : dogArrayList) {
+      System.out.print(d);
+    }
+
+    System.out.println();
+    dogArrayList.set(2, new Dog("Poodle", 50, false)); // set replaces what was at specified index (here index 2)
+
+    for (Dog d : dogArrayList) {
+      System.out.print(d);
+    }
+
+    System.out.println();
+    dogArrayList.remove(3); // remove to remove an element, everything shifts up in array list when
+                            // something gets deleted
+
+    System.out.println("\n *** Sort ArrayList - By weight largest to smalles");
+    dogArrayList.sort(Comparator.comparing(o -> o.getAvgWeight(), Comparator.reverseOrder()));
+
+    for (Dog d : dogArrayList) {
+      System.out.print(d);
     }
   }
 }
