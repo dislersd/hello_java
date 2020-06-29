@@ -16,5 +16,17 @@ public class Main {
     dogArr[4] = new Dog("Corgie", 35, true);
     System.out.println("Pointer: " + dogArr.toString());
     System.out.println(Arrays.toString(dogArr));
+    System.out.println("\n Not good for apartments");
+
+    for (int i = 0; i < dogArr.length; i++) {
+      if (dogArr[i].isApartment()) {
+        continue;
+      }
+      System.out.print(dogArr[i]);
+    }
+
+    for (Dog d : dogArr) {
+      System.out.print(d);
+    }
   }
 }
