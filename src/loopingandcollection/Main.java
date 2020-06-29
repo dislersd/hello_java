@@ -1,6 +1,6 @@
 package loopingandcollection;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -27,6 +27,48 @@ public class Main {
 
     for (Dog d : dogArr) {
       System.out.print(d);
+    }
+
+    // Type Info
+    // int, boolean, double, char (standalone types aka primitive types)
+    // Object -> String (String is a child of Object)
+    // Object -> Array (Array is child of Object)
+    // Object -> Collections -> List -> ArrayList ()
+
+    System.out.println("\n\n*** ArrayLists");
+    List<Dog> dogArrayList = new ArrayList<>(); // List can only contain one type of element, here it is Dog
+    dogArrayList.addAll(Arrays.asList(dogArr)); // taking our arraylist, dogArr is converted to a list using .asList(),
+                                                // adding all dogArr elements to arraylist
+    dogArrayList.add(new Dog("Mutt", 15, true));
+
+    for (Dog d : dogArrayList) {
+      System.out.print(d);
+    }
+
+    System.out.println();
+    for (Dog d: dogArrayList) {
+      System.out.print(d.getBreed() + " are ");
+
+      switch(d.getAvgWeight()) {
+        case 5:
+          System.out.print(d.getAvgWeight() + " very small ");
+          break;
+        case 15:
+          System.out.print(d.getAvgWeight() + " small ");
+          break;
+        case 25:
+          System.out.print(d.getAvgWeight() + " medium ");
+          break;
+        case 35:
+          System.out.print(d.getAvgWeight() + " large ");
+          break;
+        case 45:
+          System.out.print(d.getAvgWeight() + " very large ");
+          break;
+        default:
+          System.out.print(d.getAvgWeight() + " unknown ");
+      }
+      System.out.println(" dogs");
     }
   }
 }
