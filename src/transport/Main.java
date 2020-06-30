@@ -3,6 +3,23 @@ package transport;
 import java.util.*;
 
 public class Main {
+
+  private static List<AbstractVehicle> filteredList = new ArrayList<>();
+
+  // filterVehicle(myList, v -> v.getFuelLevel() < 0, true);
+  // CheckVehicle type is from CheckVehicle interface
+  private static void filterVehicles(List<AbstractVehicle> vehicles, CheckVehicle tester, boolean printit) {
+    filteredList.clear();
+    for (AbstractVehicle v : vehicles) {
+      if (tester.test(v)) {
+        if (printit) {
+          System.out.println(v.getName() + " " + v.getFuelLevel());
+        }
+        filteredList.add(v);
+      }
+    }
+  }
+
   public static void main(String[] args) {
     System.out.println("\n *** Working with interfaces");
 
@@ -48,5 +65,16 @@ public class Main {
     myList.add(vw);
     myList.add(toyota);
     myList.add(honda);
+
+    System.out.println("\n *** The List");
+    System.out.println(myList.toString()); // AbstractVehicle does not have a specified toString method so toString from
+                                           // the children (HorseFromVehicle and Auto) are executed.
+    System.out.println();
+    myList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+    myList.forEach(v -> System.out.println(v));
+
+    System.out.println("\n *** Print Negative Fuel Level");
+    filterVehicles(myList, v -> v.getFuelLevel() < 0, true); // using lambda expression v -> v.getFuel....
+
   }
 }
