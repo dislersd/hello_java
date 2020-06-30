@@ -5,14 +5,49 @@ public class Horse implements Vehicle, Animal {
   private String name;
 
   public Horse(String name) {
-    this.name = name
+    this.name = name;
   }
-  
-  
-  String getPath();
-  void move();
-  int getFuelLevel();
-  void addFuel();
-  void eat(int i);
-  String speak();
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  @Override
+  public String getPath() {
+    return "Grass";
+  }
+
+  @Override
+  public void move() {
+    fuel -= 1;
+  }
+
+  @Override
+  public int getFuelLevel() {
+    return fuel;
+  }
+
+  @Override
+  public void addFuel(int i) {
+    eat(i);
+  }
+
+  @Override
+  public void eat(int i) {
+    fuel += i;
+  }
+
+  @Override
+  public String speak() {
+    return "Neigh";
+  }
+
+  @Override
+  public String toString(){
+    return "Horse: " + "Name: " + name + " Fuel: " + fuel;
+  }
 }
