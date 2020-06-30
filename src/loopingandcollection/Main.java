@@ -126,10 +126,20 @@ public class Main {
     // sort hashmap
     List<HashMap.Entry<Integer, Dog>> sortedMapArrList = new ArrayList<>(dogsHashMap.entrySet());
 
-    sortedMapArrList.sort(Comparator.comparing(o -> o.getValue().getBreed()));
+    sortedMapArrList.sort(Comparator.comparing(object -> object.getValue().getBreed()));
     System.out.println("*** Sorted Map");
     System.out.println(sortedMapArrList);
 
     // hashmap string
+    Map<String, Dog> stringDogsMap = new HashMap<>();
+    stringDogsMap.put("John", new Dog("Springer", 60, false));
+    stringDogsMap.put("Matthew", new Dog("Corgi", 30, true));
+    stringDogsMap.put("Anne", new Dog("Mutt", 15, true));
+
+    System.out.println("\nPrinting stringDogsMap");
+    for (HashMap.Entry<String, Dog> mEntry : stringDogsMap.entrySet()) {
+      System.out.print("Key is " + mEntry.getKey());
+      System.out.println(" Value is " + mEntry.getValue());
+    }
   }
 }
