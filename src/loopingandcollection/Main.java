@@ -119,11 +119,17 @@ public class Main {
 
     // print hashmap
     System.out.println("\nPrinting hashmap");
-    for (HashMap.Entry mapElem : dogsHashMap.entrySet()) {
+    for (HashMap.Entry<Integer, Dog> mapElem : dogsHashMap.entrySet()) {
       System.out.print("Key is " + mapElem.getKey());
       System.out.println(" Value is " + mapElem.getValue());
     }
     // sort hashmap
-    // hashmao string
+    List<HashMap.Entry<Integer, Dog>> sortedMapArrList = new ArrayList<>(dogsHashMap.entrySet());
+
+    sortedMapArrList.sort(Comparator.comparing(o -> o.getValue().getBreed()));
+    System.out.println("*** Sorted Map");
+    System.out.println(sortedMapArrList);
+
+    // hashmap string
   }
 }
