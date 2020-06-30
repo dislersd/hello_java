@@ -12,7 +12,6 @@ abstract class AbstractVehicle {
   }
 
   abstract String getPath();
-
   abstract String getName();
 
   void move() {
