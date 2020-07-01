@@ -7,10 +7,10 @@ abstract class Animal {
   protected static int maxId = 0;
   protected int id;
   
-  public Animal() {
-    maxId++;
-    id = maxId;
-  }
+  // public Animal() {
+  //   maxId++;
+  //   id = maxId;
+  // }
 
   public Animal(String name, int yearNamed) {
     maxId++;
@@ -30,4 +30,9 @@ abstract class Animal {
   abstract String getBreath();
   abstract String getMovement();
   abstract String getReproduction();
+
+  @Override
+  public String toString() {
+    return name + " " + getBreath() + " " + getMovement() + " " + getReproduction() + " " + id;
+  }
 }
