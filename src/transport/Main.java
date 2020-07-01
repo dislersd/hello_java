@@ -6,7 +6,6 @@ public class Main {
 
   private static List<AbstractVehicle> filteredList = new ArrayList<>();
 
-  // filterVehicle(myList, v -> v.getFuelLevel() < 0, true);
   // CheckVehicle type is from CheckVehicle interface
   private static void filterVehicles(List<AbstractVehicle> vehicles, CheckVehicle tester, boolean printit) {
     filteredList.clear();
@@ -55,8 +54,8 @@ public class Main {
     vw.move();
     vw.move(5);
 
-    List<AbstractVehicle> myList = new ArrayList(); // Because HorseFromVehicle and Auto both have AbstractVehicle as a
-                                                    // parent they can both be added into one list together
+    List<AbstractVehicle> myList = new ArrayList<>(); // Because HorseFromVehicle and Auto both have AbstractVehicle as a
+                                                      // parent they can both be added into one list together
     myList.add(spirit);
     myList.add(boomerang);
     myList.add(trigger);
@@ -76,5 +75,9 @@ public class Main {
     System.out.println("\n *** Print Negative Fuel Level");
     filterVehicles(myList, v -> v.getFuelLevel() < 0, true); // using lambda expression v -> v.getFuel....
 
+    System.out.println("\n *** Print Negative Fuel Horse");
+    filterVehicles(myList, v -> (v.getFuelLevel() < 0) && (v instanceof HorseFromVehicle), false);
+    filteredList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+    filteredList.forEach(v -> System.out.println(v));
   }
 }
