@@ -137,3 +137,80 @@ dogArrayList.add(2, new Dog("Lab", 75, false)); // can add more then 5 elements
   
  dogArrayList.sort(Comparator.comparing(obj -> obj.getAvgWeight(), Comparator.reverseOrder())); // Comparator to sort dogs by avg weight
 ```
+- Abstract Classes and extending methods to child classes
+
+```java
+abstract class Animal {
+  // protected = This class knows about name as well as children
+  protected String name;
+  protected int yearNamed;
+  protected static int maxId = 0;
+  protected int id;
+  
+
+  public Animal(String name, int yearNamed) {
+    maxId++;
+    id = maxId;
+    this.name = name;
+    this.yearNamed = yearNamed;
+  }
+
+  public String getName() {
+    return name;
+  }
+  
+  public int getYearNamed() {
+    return yearNamed;
+  }
+
+  abstract String getBreath();
+  abstract String getMovement();
+  abstract String getReproduction();
+
+  @Override
+  public String toString() {
+    return name + " " + getBreath() + " " + getMovement() + " " + getReproduction() + " " + id;
+  }
+}
+
+
+public class Mammal extends Animal {
+
+  public Mammal(String name, int yearNamed) {
+    super(name, yearNamed);
+  }
+
+  @Override
+  public String getBreath() {
+    return "lungs";
+  }
+  @Override
+  public String getMovement() {
+    return "walk";
+  }
+  @Override
+  public String getReproduction() {
+    return "live birth";
+  }
+}
+
+
+public class Bird extends Animal {
+  public Bird(String name, int yearNamed) {
+    super(name, yearNamed);
+  }
+
+  @Override
+  public String getBreath() {
+    return "lungs";
+  }
+  @Override
+  public String getMovement() {
+    return "fly";
+  }
+  @Override
+  public String getReproduction() {
+    return "eggs";
+  }
+}
+```
