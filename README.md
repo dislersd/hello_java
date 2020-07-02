@@ -99,3 +99,41 @@ Working with Java basics.
     }
 }
  ```
+
+- Looping through arrays and lists and sorting lists
+
+```java
+
+public class Dog {
+  private String breed;
+  private int avgWeight;
+  private boolean apartment;
+
+  public Dog(String breed, int avgWeight, boolean apartment) {
+    this.breed = breed;
+    this.avgWeight = avgWeight;
+    this.apartment = apartment;
+  }
+ }
+
+Dog[] dogArr = new Dog[5]; // indexed 0...4, specifying this array will hold 5 elements of the type Dog
+dogArr[0] = new Dog("Springer", 50, false);
+dogArr[1] = new Dog("Bulldog", 45, true);
+dogArr[2] = new Dog("Collie", 45, false);
+dogArr[3] = new Dog("Chihuahua", 5, true);
+dogArr[4] = new Dog("Corgie", 35, true);
+
+for (Dog d : dogArr) {
+  System.out.print(d);
+}
+
+List<Dog> dogArrayList = new ArrayList<>(); // Array Lists, unlike Arrays, are not a fixed length you can add as many elements as you want.
+dogArrayList.addAll(Arrays.asList(dogArr));
+dogArrayList.add(2, new Dog("Lab", 75, false)); // can add more then 5 elements
+
+ for (Dog d : dogArrayList) {
+  System.out.print(d);
+  }
+  
+ dogArrayList.sort(Comparator.comparing(obj -> obj.getAvgWeight(), Comparator.reverseOrder())); // Comparator to sort dogs by avg weight
+```
