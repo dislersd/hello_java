@@ -214,3 +214,40 @@ public class Bird extends Animal {
   }
 }
 ```
+
+- Working with HashMaps
+
+```java
+
+Map<Integer, Dog> dogsHashMap = new HashMap<>();
+    int hashcount = 0;
+    for (Dog d : dogArrayList) {
+      dogsHashMap.put(hashcount, d);
+      hashcount++;
+    }
+
+    System.out.println("Key of 3 " + dogsHashMap.get(3)); // Key of 3 Dog: Breed = Corgie AvgWeight = 35 Apartment = true
+    System.out.println("Size " + dogsHashMap.size()); // Size 6
+    dogsHashMap.remove(3);
+    System.out.println("Key of 3 removed " + dogsHashMap.get(3)); // Key of 3 removed null
+
+    // print hashmap
+    System.out.println("\nPrinting hashmap");
+    for (HashMap.Entry<Integer, Dog> mapElem : dogsHashMap.entrySet()) {
+      System.out.print("Key is " + mapElem.getKey());
+      System.out.println(" Value is " + mapElem.getValue());
+    }
+    // sort hashmap
+    List<HashMap.Entry<Integer, Dog>> sortedMapArrList = new ArrayList<>(dogsHashMap.entrySet());
+    
+    sortedMapArrList.sort(Comparator.comparing(object -> object.getValue().getBreed())); // sorting dogs by breed
+
+    System.out.println(sortedMapArrList);
+    
+//    [2=Dog: Breed = Bulldog AvgWeight = 45 Apartment = true
+//    , 5=Dog: Breed = Chihuahua AvgWeight = 5 Apartment = true
+//    , 4=Dog: Breed = Mutt AvgWeight = 15 Apartment = true
+//    , 1=Dog: Breed = Poodle AvgWeight = 50 Apartment = false
+//    , 0=Dog: Breed = Springer AvgWeight = 50 Apartment = false
+//    ]
+```
